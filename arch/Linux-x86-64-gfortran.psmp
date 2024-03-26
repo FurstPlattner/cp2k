@@ -1,0 +1,11 @@
+CC         = mpicc
+CPP        =
+FC         = mpif90
+LD         = mpif90
+AR         = ar -r
+DFLAGS     = -D__FFTW3 -D__LIBXC -D__LIBINT -D__parallel -D__SCALAPACK              -D__MPI_VERSION=3 -D__F2008 -D__LIBXSMM -D__SPGLIB              -D__MAX_CONTR=4 -D__LIBVORI               -D__PLUMED2
+CFLAGS    = -fopenmp
+FCFLAGS    = $(DFLAGS) -O2 -ffree-form -ffree-line-length-none              -ftree-vectorize -funroll-loops -msse2              -std=f2008              -fopenmp -ftree-vectorize -funroll-loops              -I/nix/store/y712xm0y1ciw3an2bsmpw4kdscxfsj3w-libxc-6.2.2-dev/include -I/nix/store/54pdrgkfz8aqn55apn4h0mzmdvnmx52q-libxsmm-1.16.3-dev/include              -I/nix/store/wshvfgavx35v1j9s21bj5jjqlf2hsql5-libint-2.8.1/include                                                                                                                                                           
+LIBS       = -lfftw3 -lfftw3_threads              -lscalapack -lblas -llapack              -lxcf03 -lxc -lxsmmf -lxsmm -lsymspg              -lint2 -lstdc++ -lvori              -lgomp -lpthread -lm              -fopenmp               -lz -ldl -lstdc++ -L/nix/store/izwna8x22asw3hkkj022h26lan7r683y-openmpi-4.1.6/lib -L/nix/store/9sdxrwgnvn99ld70nvsyl39f2rax93q0-libfabric-1.20.1-dev/lib -L/nix/store/0p79lpmq6cnb992n6j7gr9h6zn18sz47-pmix-5.0.1/lib -L/nix/store/rmvxpmck6rlv3v2n99521414cfhrqx44-libnl-3.8.0-dev/lib -L/nix/store/pfi8jmc29wacr797xgxh6p7fpadsd6w0-libpsm2-12.0.1/lib -Wl,-rpath -Wl,/nix/store/izwna8x22asw3hkkj022h26lan7r683y-openmpi-4.1.6/lib -Wl,-rpath -Wl,/nix/store/9sdxrwgnvn99ld70nvsyl39f2rax93q0-libfabric-1.20.1-dev/lib -Wl,-rpath -Wl,/nix/store/0p79lpmq6cnb992n6j7gr9h6zn18sz47-pmix-5.0.1/lib -Wl,-rpath -Wl,/nix/store/rmvxpmck6rlv3v2n99521414cfhrqx44-libnl-3.8.0-dev/lib -Wl,-rpath -Wl,/nix/store/pfi8jmc29wacr797xgxh6p7fpadsd6w0-libpsm2-12.0.1/lib -Wl,--enable-new-dtags -lmpi_cxx -lmpi              -lplumed
+LDFLAGS    = $(FCFLAGS) $(LIBS)
+include /nix/store/q7w35cglaz2dj2740jfdq2ks94ws3vbw-plumed-2.9.0/lib/plumed/src/lib/Plumed.inc

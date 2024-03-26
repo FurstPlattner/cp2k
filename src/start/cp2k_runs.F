@@ -341,7 +341,7 @@ CONTAINS
              method_name_id /= do_mixed .AND. &
              method_name_id /= do_nnp .AND. &
              method_name_id /= do_embed .AND. &
-             method_name_id /= do_fist) &
+             method_name_id /= do_fist) & ! Should be doable through Spicy
             CPABORT("Energy/Force run not available for all methods ")
 
          sublogger => cp_get_default_logger()
